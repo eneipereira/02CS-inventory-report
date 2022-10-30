@@ -26,7 +26,4 @@ class CompleteReport(SimpleReport):
         for (company, quantity) in companies_dict.items():
             remaining_report += f"- {company}: {quantity}\n"
 
-        return (
-            f"{simple_report}\n"
-            f"{remaining_report}"
-        )
+        return f"{simple_report}\n" f"{remaining_report}"

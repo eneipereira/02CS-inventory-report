@@ -1,5 +1,5 @@
 from xml.etree import ElementTree as ET
-from .importer import Importer
+from inventory_report.importer.importer import Importer
 
 
 class XmlImporter(Importer):
@@ -13,8 +13,7 @@ class XmlImporter(Importer):
         root = tree.getroot()
 
         xml_data = [
-            {subtag.tag: subtag.text for subtag in tag}
-            for tag in root
+            {subtag.tag: subtag.text for subtag in tag} for tag in root
         ]
 
         return xml_data

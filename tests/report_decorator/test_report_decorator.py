@@ -53,10 +53,7 @@ GREEN = [
     "\033[32mEmpresa com mais produtos:\033[0m",
 ]
 
-BLUE = [
-    f"\033[36m{oldest_date}\033[0m",
-    f"\033[36m{closest_date}\033[0m"
-]
+BLUE = [f"\033[36m{oldest_date}\033[0m", f"\033[36m{closest_date}\033[0m"]
 
 RED = f"\033[31m{company_bigger_stock}\033[0m"
 

@@ -17,9 +17,9 @@ def main():
 
     file_ext = Path(path).suffix
 
-    if file_ext == '.csv':
+    if file_ext == ".csv":
         importer = CsvImporter
-    elif file_ext == '.json':
+    elif file_ext == ".json":
         importer = JsonImporter
     else:
         importer = XmlImporter

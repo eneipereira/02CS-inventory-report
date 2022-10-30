@@ -8,13 +8,13 @@ PARAMS = [
     "2022-10-28",
     "2024-12-25",
     "123456789",
-    "corretamente"
-    ]
+    "corretamente",
+]
 
 REPORT_PHRASE = (
     "O produto Teste fabricado em 2022-10-28 por Empresa Fictícia "
     "com validade até 2024-12-25 precisa ser armazenado corretamente."
-    )
+)
 
 
 def test_relatorio_produto():

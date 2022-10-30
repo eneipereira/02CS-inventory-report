@@ -7,8 +7,8 @@ PARAMS = [
     "2022-10-28",
     "2024-12-25",
     "123456789",
-    "Guardar direitinho"
-    ]
+    "Guardar direitinho",
+]
 
 
 def test_cria_produto():

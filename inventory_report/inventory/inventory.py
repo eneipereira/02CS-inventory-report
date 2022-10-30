@@ -1,52 +1,27 @@
-import csv
-import json
 from pathlib import Path
-from xml.etree import ElementTree as ET
+from inventory_report.importer.csv_importer import CsvImporter
+from inventory_report.importer.json_importer import JsonImporter
+from inventory_report.importer.xml_importer import XmlImporter
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 
 
 class Inventory:
-    def __csv_reader(path):
-        with open(path, "r") as file:
-            companies_reader = csv.DictReader(file)
-            csv_data = list(companies_reader)
-
-            return csv_data
-
-    def __json_reader(path):
-        with open(path) as file:
-            json_data = json.load(file)
-
-            return json_data
-
-    def __xml_reader(path):
-        tree = ET.parse(path)
-
-        root = tree.getroot()
-
-        xml_data = [
-            {subtag.tag: subtag.text for subtag in tag}
-            for tag in root
-        ]
-
-        return xml_data
-
     @staticmethod
     def import_data(path: str, type="completo"):
         file_ext = Path(path).suffix
-        companies_data = []
+        inventory = []
 
         if file_ext == ".csv":
-            companies_data = Inventory.__csv_reader(path)
+            inventory = CsvImporter.import_data(path)
 
         elif file_ext == ".json":
-            companies_data = Inventory.__json_reader(path)
+            inventory = JsonImporter.import_data(path)
 
         elif file_ext == ".xml":
-            companies_data = Inventory.__xml_reader(path)
+            inventory = XmlImporter.import_data(path)
 
         if type == "simples":
-            return SimpleReport.generate(companies_data)
+            return SimpleReport.generate(inventory)
 
-        return CompleteReport.generate(companies_data)
+        return CompleteReport.generate(inventory)

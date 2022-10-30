@@ -15,7 +15,7 @@ class SimpleReport:
             dado["data_de_validade"]
             for dado in data
             if dado["data_de_validade"] >= today
-            ]
+        ]
 
         return expiration_date_list
 
